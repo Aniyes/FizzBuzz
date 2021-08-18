@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>App Name: A Coding Project By Seydina Diop</title>
+    <title>FizzBuzz: A Coding Project By Seydina Diop</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -55,13 +55,104 @@
  <!--                     Main Section                     -->
     <main class="flex-shrink-0">
         <div class="container py-5 px-4 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for FizzBuzz</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
-                    <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function HelloWorld() {
-                            alert("Hello World");
+
+                    <pre class="line-numbers">
+                        <code class="language-javascript">
+                        
+
+
+
+
+
+//get the values from the page
+//starts or controller function
+function getValues() {
+        //get values from the page
+        let Fizz = document.getElementById("Fizz").value;
+        let Buzz = document.getElementById("Buzz").value;
+        
+        
+
+        //we need to Validate our input
+        //parse into Integers
+        Fizz = parseInt(Fizz);
+        Buzz = parseInt(Buzz);
+
+        if (Number.isInteger(Fizz) && Number.isInteger(Buzz)) {
+
+                 //we call generateNumbers
+              let numbers = generateNumbers(Fizz, Buzz);
+                //we call displayNumbers
+                  displayNumbers(numbers);
+        } else {
+                alert("You must enter integers");
+        }
+    
+
+
+    
+       
+
+    
+}
+
+//generate numbers from Fizz to the Buzz
+//logic function(s)
+function generateNumbers(Fizz, Buzz) {
+
+        let numbers = [];
+
+        //we want to get all numbers from the start to end
+        for (let i = 0; i <= 100; i++) {
+
+                //Check to see if divisible by Both (3 and 5)
+                //check to see if divisible by fizz value (3)
+                //check to see if divisible by buzz value (5)
+                if (i % Fizz == 0 && i % Buzz == 0) {
+                        numbers.push('FizzBuzz');        
+                } else if (i % Fizz == 0) {
+                        numbers.push('Fizz');
+                } else if (i % Buzz == 0) {
+                        numbers.push('Buzz');
+                } else {
+                        numbers.push(i);
+                }
+                
+                
+        }
+
+        return numbers;
+    
+}
+
+
+//display the numbers and mark even numbers bold
+//display or view functions
+function displayNumbers(numbers) {
+        //get the table body element from the page
+        let tableBody = document.getElementById("results");
+        //get the template row
+        let templateRow = document.getElementById("fbTemplate");
+
+        //clear table
+        tableBody.innerHTML = "";
+        
+        for (let i = 0; i < numbers.length; i+=5) {
+                let number = numbers[i];
+                let tableRow = document.importNode(templateRow.content, true);
+                //grab use the td's and put into array
+                let rowCols = tableRow.querySelectorAll("td");
+                rowCols[0].textContent = numbers[i];
+                rowCols[1].textContent = numbers[i + 1];
+                rowCols[2].textContent = numbers[i + 2];
+                rowCols[3].textContent = numbers[i + 3];
+                rowCols[4].textContent = numbers[i + 4];
+
+                tableBody.appendChild(tableRow);                
+        }
 }
                     </code>
                 </pre>
@@ -69,8 +160,22 @@
                 </div>
                 <div class="col-lg-4">
                     <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of 'Hello World".</p>
+                    <h5>getValues()</h5>
+                    <p>This fuction is used to get the initial starting and ending values for the application. 
+                        Validation is utilized by parsing values into integers prior to calling the next function generateNumbers().</p>
+                    <br>
+                    <h5>generateNumbers</h5>
+                    <p>
+                        Logic function that initializes and utilizes the variable numbers as an array 
+                        and utilizes a for loop to push the variables to the function displayNumbers.
+
+                    </p>
+                    <br>
+                    <h5>displayNumbers</h5>
+                    <p>
+                        Initilizes the variable templateRows and uses a for loop with a conditional if statement
+                        to validate whether or not a number is Fizz,Buzz, or both. Results will be displayed accordingly via table.
+                    </p>
 
                 </div>
             </div>
