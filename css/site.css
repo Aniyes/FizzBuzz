@@ -1,0 +1,79 @@
+:root{
+    --primary-color: #29033f;
+    --secondary-color: #4d0101;
+    --dark-color: #292929;
+    --white-color: #dff3e4;
+}
+
+
+main>.container {
+    padding: 60px 15px 0;
+    margin-bottom: 5rem;
+}
+
+body{
+    background-color:var(--dark-color);
+    color: var(--white-color);
+}
+
+nav{
+    background-color:var(--dark-color);
+}
+
+footer{
+    background-color: var(--dark-color);
+}
+
+
+h1,h2,h3,h4,h5,h6{
+    color: var(--primary-color);
+}
+
+.sticky-nav {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100 %;
+       }
+
+footer{
+    padding-right: 1rem;
+}
+
+footer .social>a{
+color: var(--primary-color);
+opacity: .75;
+
+}
+
+footer .social>a:hover{
+    color: var(--secondary-color);
+    opacity: .9;
+}
+
+.bsicon{
+    color: purple;
+}
+.jsicon{
+    color: rgb(226,211,4);
+}
+
+
+code[class*="language-"],
+    pre[class*="language-"] {
+         white-space: pre-wrap;
+         word-break: break-all;
+         word-wrap: break-word;
+}
+
+.html5icon{
+    color: orangered;
+}
+
+.checklist >li i{
+    color: purple;
+}
+
+.cssicon{
+    color: rgb(11,82,214);
+}
